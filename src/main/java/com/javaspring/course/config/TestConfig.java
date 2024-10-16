@@ -12,6 +12,7 @@ import com.javaspring.course.entities.Category;
 import com.javaspring.course.entities.Order;
 import com.javaspring.course.entities.OrderItem;
 import com.javaspring.course.entities.OrderStatus;
+import com.javaspring.course.entities.Payment;
 import com.javaspring.course.entities.Product;
 import com.javaspring.course.entities.User;
 import com.javaspring.course.repositories.CategoryRepository;
@@ -81,6 +82,11 @@ public class TestConfig implements CommandLineRunner {
 		
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
+		
+		orderRepository.save(o1);
 		
 		
 		
